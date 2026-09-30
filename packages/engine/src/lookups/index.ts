@@ -12,7 +12,7 @@
  *  - Life Palace 命宫: stem by Five Tigers from the year stem; the branch rule is to be found
  *    (Example A → 己未). Several traditional formulas exist — test them on the 30 samples.
  *
- * Life Gua / Life Star / 8 directions: REQUESTED by Ray on 30 Sep (was optional; RC-01).
+ * Life Gua / Life Star / 8 directions: REQUESTED by Ray on 30 Sep (was optional; RC-05).
  * Life Star = the Gua number's nine-star name (Example A: Gua 3 震 → "3 Jade", Wood).
  * Lead: on one sample born before Li Chun on 4 Feb, the Gua follows the NEW year while the pillars
  * follow the old one — so the Gua year boundary is not the exact Li Chun instant. Find the rule.

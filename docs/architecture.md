@@ -62,5 +62,5 @@ Both bundles are ~540 kB, and lunar-javascript is most of that.
 | 30 Sep | Monorepo with npm workspaces; TypeScript throughout; Vitest; React + Vite for the web app (WS7 may swap it) | This scaffold |
 | 30 Sep | Specs skip until implemented (`NotImplementedError`), so CI stays green while showing progress | `packages/engine/test/helpers.ts` |
 | 30 Sep | Late 子 hour = lunar-javascript sect 2 (confirmed by Ray); no historical UTC offset by default (matches the reference) | `settings.ts`, `conventions.md` |
-| 30 Sep | Gua / Life Star / 8 directions and the 8 personal details added (RC-01); 6 Aspects slot reserved (RC-02) | `types.ts`, `requirements-changes.md` |
+| 30 Sep | Gua / Life Star / 8 directions and the 8 personal details added (RC-05); 6 Aspects slot reserved (RC-06) | `types.ts`, `requirements-changes.md` |
 | 30 Sep | The sample charts double as a validation set for every workstream, not only the percentages | `test/samples.test.ts` |

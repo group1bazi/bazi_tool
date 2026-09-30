@@ -12,7 +12,7 @@ chart footers). "Correct" means matching its output.
 | `historicalUtcOffset` | `'ignore'` · `'apply'` | `'ignore'` | ✅ **Evidence-based** | The reference plotter never asks for a birthplace (CD1), so it can't apply one. On the 1978 chart, converting Singapore's +07:30 to +08:00 would make the day 丁酉, but the chart shows 丙申. An explicit `BirthInput.utcOffset` still wins. |
 | `timeBasis` | `'clock'` · `'true-solar'` | `'clock'` | ❓ **TBC** — Q14 | His hour table is headed "Local/solar time\*". The 1978 example can't tell the two apart. |
 | `hiddenStemDisplay` | `'canonical'` · `'residual-main-middle'` | `'residual-main-middle'` | ✅ **Seen on every reference chart** | Main qi centred: 丑 辛**己**癸, 申 戊**庚**壬 (1978 chart, samples, Example A). Two-stem branches: main, middle (亥 壬甲, 午 丁己). |
-| `luckStartMethod` | `'days-div-3'` · `'minutes'` | `'days-div-3'` | 🔧 **Ours to choose** (RC-05) | Ray doesn't know his plotter's rule. Choose one, prove it on the 30 samples, and explain it to him. |
+| `luckStartMethod` | `'days-div-3'` · `'minutes'` | `'days-div-3'` | 🔧 **Ours to choose** (RC-09) | Ray doesn't know his plotter's rule. Choose one, prove it on the 30 samples, and explain it to him. |
 | `ageReckoning` | `'real'` · `'nominal'` | `'real'` | ❓ TBC | Reference charts print ages like 8, 18, 28… and 10, 20, 30…. lunar-javascript reports nominal (虚岁) ages. Key the printed first age of every sample (`luck_first_age`). |
 | `monthStripSpan` | `'bazi-year'` · `'calendar-year'` | `'bazi-year'` | ❓ Ask Ray which he wants | Joey Yap samples: "FEB 4 … JAN 5 (2027)". Ray's deck slide: "JAN 5 … DEC 7". Both are drawn right → left. |
 

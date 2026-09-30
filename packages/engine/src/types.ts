@@ -142,7 +142,7 @@ export type Direction = 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW';
 export type Mansion =
   'shengQi' | 'tianYi' | 'yanNian' | 'fuWei' | 'huoHai' | 'wuGui' | 'liuSha' | 'jueMing';
 
-/** Life Gua (命卦), Life Star and the eight direction sectors — REQUESTED by Ray on 30 Sep (RC-01). */
+/** Life Gua (命卦), Life Star and the eight direction sectors — REQUESTED by Ray on 30 Sep (RC-05). */
 export interface LifeGua {
   /** 1–9, never 5 (a 5 becomes 2 for men and 8 for women). */
   number: number;
@@ -154,7 +154,7 @@ export interface LifeGua {
   directions: Record<Mansion, Direction>;
 }
 
-/** The "6 Aspects" bar chart, natal and annual — REQUESTED on 30 Sep; method unknown (RC-02, R11). */
+/** The "6 Aspects" bar chart, natal and annual — REQUESTED on 30 Sep; method unknown (RC-06, R11). */
 export interface SixAspects {
   model: string;
   natal: Record<AspectId, number>;
