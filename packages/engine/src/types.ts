@@ -64,9 +64,17 @@ export interface Settings {
   historicalUtcOffset: 'ignore' | 'apply';
   /** How the UI lays out hidden stems. The engine always stores canonical order. */
   hiddenStemDisplay: 'canonical' | 'residual-main-middle';
-  /** lunar-javascript getYun sect 1 (days ÷ 3) or 2 (minute-based). */
-  luckStartMethod: 'days-div-3' | 'minutes';
-  /** Ray's charts show real ages; lunar-javascript reports nominal (虚岁) ages. */
+  /**
+   * 'calendar-days' — the reference plotter's rule, found on all 30 samples: whole calendar days from
+   *   the birth DATE to the DATE of the 节 (forward: first 节 dated after the birth date; backward: last
+   *   节 dated on or before it), first age = round(days ÷ 3).
+   * 'days-div-3' / 'minutes' — lunar-javascript getYun sect 1 / sect 2 (exact instants).
+   */
+  luckStartMethod: 'calendar-days' | 'days-div-3' | 'minutes';
+  /**
+   * How luck-pillar ages are counted. The reference prints nominal (虚岁) ages: a pillar printed at
+   * age A starts in the year birthYear + A − 1 (the "Here" marker on all 30 samples).
+   */
   ageReckoning: 'real' | 'nominal';
   /**
    * 'bazi-year' — 寅 month (Li Chun, ~4 Feb) to 丑 month (~5 Jan next year), as on the Joey Yap

@@ -1,7 +1,8 @@
 /**
  * WS4 specs — luck, annual and monthly pillars. They SKIP until src/cycles stops throwing.
- * The luck START AGE is deliberately not asserted yet. Ray doesn't know his plotter's rule (30 Sep),
- * so we choose one and prove it on the 30 samples (samples.test.ts), then explain it to him.
+ * The luck START AGE rule was found on Ray's 30 samples (30 Sep; docs/conventions.md) and is the
+ * default ('calendar-days'). samples.test.ts scores it against every printed first age; the spec
+ * below pins it with a synthetic birth.
  */
 import { describe, expect, it } from 'vitest';
 import { formatGanZhi } from '../src/core';
@@ -58,11 +59,29 @@ describe('[WS4] luck pillars', () => {
     expect(computeLuck({ ...exampleA, gender: null }, exampleANatal, DEFAULT_SETTINGS)).toBeNull();
   });
 
+  // Synthetic: 7 Aug 2010 10:00 is on the 立秋 date but before its instant (22:49), so the month is
+  // still 癸未. The reference counts whole calendar days to the 节 DATE: a man (forward) waits for
+  // 白露 on 8 Sep (32 days → 11); a woman (backward) is already at 立秋 (0 days → 0). lunar-javascript's
+  // exact-instant rule gives 0 and 10 instead. 4 Aug is an ordinary day: 3 days → 1, 28 days → 9.
+  spec('start age = whole calendar days to the 节 date ÷ 3, rounded (calendar-days)', () => {
+    const born = (date: string, gender: 'M' | 'F'): BirthInput => ({
+      date,
+      time: { kind: 'exact', time: '10:00' },
+      gender,
+    });
+    const first = (date: string, gender: 'M' | 'F', pillars: string) =>
+      computeLuck(born(date, gender), natal(pillars), DEFAULT_SETTINGS)?.pillars[0];
+    const onJie = '庚寅 癸未 己丑 己巳';
+    expect(formatGanZhi(first('2010-08-07', 'M', onJie)!)).toBe('甲申');
+    expect(first('2010-08-07', 'M', onJie)?.startAge).toBe(11);
+    expect(formatGanZhi(first('2010-08-07', 'F', onJie)!)).toBe('壬午');
+    expect(first('2010-08-07', 'F', onJie)?.startAge).toBe(0);
+    expect(first('2010-08-04', 'M', '庚寅 癸未 丙戌 癸巳')?.startAge).toBe(1);
+    expect(first('2010-08-04', 'F', '庚寅 癸未 丙戌 癸巳')?.startAge).toBe(9);
+  });
+
   it.todo(
-    '[WS4] the chosen start-age rule reproduces the displayed first-luck age on all 30 samples (samples.test.ts)',
-  );
-  it.todo(
-    '[WS4] births a few hours before a 节 on the same day: the reference shows a first luck age of 10 where days ÷ 3 gives ~0 — explain or match',
+    '[WS4] the start-age rule reproduces the printed first-luck age on all 30 samples (samples.test.ts)',
   );
   it.todo(
     '[WS4] the "starts at 8" deck chart (Day Master 丙, month 甲午) reproduces age 8 — needs its birth data from Ray',
