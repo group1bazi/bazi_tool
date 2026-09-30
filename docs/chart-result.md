@@ -25,10 +25,10 @@ when the real engine arrives.
 | `annual` | `AnnualPillar` | Pillar + `year` |
 | `monthly` | `MonthPillar[12]` | Pillar + Gregorian `month` + `starts` (ISO instant of the 节) + `lifeStage` (十二长生 of the Day Master). Span per `settings.monthStripSpan` — default Feb → Jan (Bazi year) |
 | `supporting` | `SupportingDetails` | The 8 Personal Chart Details: Celestial Animal, Noble People[], Intelligence, Peach Blossom, Sky Horse, Solitary, Life Palace (pillar), Conception Palace (pillar) |
-| `gua` | `LifeGua \| null` | `number`, `trigram`, `group` (east/west), `lifeStar`, `directions` (8 sectors); null without gender. **Added 30 Sep (RC-01)** |
+| `gua` | `LifeGua \| null` | `number`, `trigram`, `group` (east/west), `lifeStar`, `directions` (8 sectors); null without gender. **Added 30 Sep (RC-05)** |
 | `relationships` | `Relationship[]` | `kind`, `between` (positions, incl. `luck` / `annual`), `chars`, optional `resultElement` |
 | `profiles` | `Profiles \| null` | `natal` + `annual` sets; null until the WS3 model is accepted; carries a `model` id |
-| `aspects` | `SixAspects \| null` | "6 Aspects", `natal` + `annual`; null until a model is found. **Added 30 Sep (RC-02)** |
+| `aspects` | `SixAspects \| null` | "6 Aspects", `natal` + `annual`; null until a model is found. **Added 30 Sep (RC-06)** |
 | `warnings` | `ChartWarning[]` | `code` + message (+ `minutes` for near-boundary codes) |
 
 ## Design rules
@@ -51,8 +51,9 @@ and to `EXAMPLE_A_CHART`. If an existing field changes meaning, bump `schemaVers
 
 - `relationships[].between: 'luck'` means the luck pillar in force in `annualYear`. Is that enough for the
   summary view, or does WS5/WS7 want every luck pillar checked?
-- `luck.pillars[].startAge` — real or nominal age? It follows `settings.ageReckoning` (Q2). The reference
-  prints ages like 8, 18, 28 and 10, 20, 30.
+- `luck.pillars[].startAge` follows `settings.ageReckoning`, now `'nominal'` by default: the 30 samples show
+  the reference prints nominal (虚岁) ages (`docs/conventions.md`). A pillar printed at age A starts in
+  `startYear` = birth year + A − 1.
 - `profiles.annual` / `aspects.annual`: the samples show an annual version of both (e.g. "Annual 2026"), so
   `annualYear` drives them as well as the annual pillar and the month strip.
 - The reference also shows **Annual Bazi Stars** and **Qi Men** panels. They are deliberately **not** in v1:

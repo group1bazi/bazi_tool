@@ -53,7 +53,7 @@ const DIRECTIONS_ZH: Record<string, string> = {
 const GOOD: Mansion[] = ['shengQi', 'tianYi', 'yanNian', 'fuWei'];
 const BAD: Mansion[] = ['huoHai', 'wuGui', 'liuSha', 'jueMing'];
 
-/** Life Gua, Life Star and the eight direction sectors — requested by Ray on 30 Sep (RC-01). */
+/** Life Gua, Life Star and the eight direction sectors — requested by Ray on 30 Sep (RC-05). */
 export function GuaPanel({ chart, display }: { chart: ChartResult; display: Display }) {
   const zh = display.lang === 'zh';
   const g = chart.gua;
