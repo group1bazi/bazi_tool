@@ -1,7 +1,7 @@
 {
   "id": "example-a",
   "description": "Ray's sample natal chart: 06 Sep 1988 01:30, female.",
-  "source": "Project_Bazi_plotting_tool.pdf p.3 (client deck; image client_chart_natal_layout.png). Pillars verified independently with lunar-python and lunar-javascript (tracker V-12); supporting panel checked against standard tables (V-17). Solitary, Life Palace, Conception Palace, Life Star and Gua read off the same chart (30 Sep) — they are now in scope (RC-01).",
+  "source": "Project_Bazi_plotting_tool.pdf p.3 (client deck; image client_chart_natal_layout.png). Pillars verified independently with lunar-python and lunar-javascript (tracker V-12); supporting panel checked against standard tables (V-17). Solitary, Life Palace, Conception Palace, Life Star and Gua read off the same chart (30 Sep) — they are now in scope (RC-05).",
   "input": {
     "date": "1988-09-06",
     "time": { "kind": "exact", "time": "01:30" },
@@ -60,11 +60,11 @@
   },
   "hypotheses": {
     "luck": {
-      "status": "Q2 open — confirm against Ray's plotter before moving into 'expected'",
+      "status": "The reference's start-age rule was found on the 30 samples (30 Sep, docs/conventions.md), but Example A's own luck pillars are not on the deck — keep as a hypothesis",
       "direction": "backward (yang year, female)",
-      "start": "9 years 9 months 20 days (lunar-javascript, both methods)",
+      "start": "printed first age 10: 30 calendar days back to 立秋 (7 Aug 1988) ÷ 3 (luckStartMethod 'calendar-days'). The exact-instant methods give 9 years 9 months 20 days.",
       "pillars": ["己未", "戊午", "丁巳", "丙辰", "乙卯", "甲寅", "癸丑", "壬子"],
-      "firstPillarStartYear": 1998
+      "firstPillarStartYear": 1997
     },
     "profilesNatal": {
       "status": "From Ray's 5 Structures / 10 Profiles slide. Consistent with this chart (Day Master 甲, 7K strongest) but not proven to be the same person (V-20).",

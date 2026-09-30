@@ -19,8 +19,8 @@ dates and a test that proves each item is done. Scope changes since CD1 are logg
 | 3 | **Delivery breakdown** across CD3–CD6 | Ray asked for it |
 | 4 | **Who owns what**: named owners, especially integration | Ray asked "who will be responsible for the integration setup" (V-13) |
 | 5 | **Engine progress tested against his samples**, with match rates | Promised in the follow-up email; brief: "demonstrations, prototypes … encouraged" |
-| 6 | **How luck pillars and the annual pillar are computed**, explained to Ray | **New:** he doesn't know and asked us to explain it (RC-05) |
-| 7 | **Our plan for the % and 6 Aspects reverse-engineering**, with first results | He called the % "the critical piece" again; the 6 Aspects are new (RC-02, RC-03) |
+| 6 | **How luck pillars and the annual pillar are computed**, explained to Ray | **New:** he doesn't know and asked us to explain it (RC-09) |
+| 7 | **Our plan for the % and 6 Aspects reverse-engineering**, with first results | He called the % "the critical piece" again; the 6 Aspects are new (RC-06, RC-07) |
 | 8 | Team introduction (**A1**) and asking for the floor with an agenda (**A2**) | Carried over from CD1; meeting performance is assessed |
 | 9 | Roles: facilitator, note-taker, presenter, **demonstrator**, timekeeper | CD2–5 brief (the demonstrator is new) |
 
@@ -37,11 +37,11 @@ Change Log.
 | Q3 — 23:00–23:59 births | ✅ **Closed.** The day pillar stays; the hour stem uses the next day (`Determining_Hour Pillar.docx`) |
 | Q5 — 空亡 rule | ✅ **Closed** (`Determining_DE.docx`) |
 | Q4 — hidden-stem display order | ✅ Main qi centred on every reference chart |
-| Samples | ✅ **All 30 arrived** (1–10 on 30 Sep). No text layer, so they are keyed by hand |
+| Samples | ✅ **All 30 keyed** (30 Sep) into `Sample_Register` → `Sample_Values` and `research/profiles/data/samples.csv`. Each row still needs `checked_by`. New rules found are in `docs/conventions.md` |
 | Q6/Q7 — input file | ✅ Add **Gender (M/F)** and an **estimated 2-hour slot** column; both blank = hour unknown. Our v2 template is drafted and must go back to Ray |
-| Q2 — luck-pillar rule | 🔧 **Ours to define** — Ray doesn't know (RC-05) |
-| Q10/Q11 — Gua, Life Star, 8 directions, personal details | ✅ **Now requested** (RC-01) |
-| 6 Aspects (natal + annual) | 🆕 **Requested, method unknown** (RC-02) → risk R11 |
+| Q2 — luck-pillar rule | 🔧 **Ours to explain** — Ray doesn't know (RC-09). His software's rule was found on the 30 samples (30/30): whole calendar days to the 节 date ÷ 3, nominal ages |
+| Q10/Q11 — Gua, Life Star, 8 directions, personal details | ✅ **Now requested** (RC-05) |
+| 6 Aspects (natal + annual) | 🆕 **Requested, method unknown** (RC-06) → risk R11 |
 | Reference software | ℹ️ **Joey Yap's BaZi software**. Its footer claims copyright on its charts, designs and terminology → risk R10 |
 | Q14 — clock vs true solar time | ❓ Still open |
 
@@ -83,7 +83,7 @@ Change Log.
 | When | What | Tracker |
 |---|---|---|
 | **Wed 30 Sep (today)** | Merge this scaffold after review. **If consultation 1 is not booked yet, email Dr Yau today — the 36-hour cutoff is Thu 1 Oct 02:00.** | T16 |
-| Thu 1 Oct | Everyone: clone, `npm install`, `npm run check` passes. Owners read their module header + specs. **PO sends Ray `Clients_particulars_v2.xlsx` to confirm the slot format.** | RC-04 |
+| Thu 1 Oct | Everyone: clone, `npm install`, `npm run check` passes. Owners read their module header + specs. **PO sends Ray `Clients_particulars_v2.xlsx` to confirm the slot format.** | RC-08 |
 | **Fri 2 Oct** | **S1: ChartResult v1 frozen** (WS1 + WS7 + WS8 sign off `types.ts`). S6 designed-sample request drafted. Consultation 1 (14:00–18:00, W5-04-06): raise R10 (copyright) with Dr Yau. | T20, T24, T17 |
 | Mon 5 – Fri 9 Oct | Quiz 1 week — keep tasks small. S2 (Apps Script half), S3, S4, S7, **S8**. **All 30 samples keyed and checked.** | T21–T23, T25 |
 | **Fri 9 Oct** | Sprint 1 review: spikes written up in `docs/spikes.md`; first match-rate table. | — |
@@ -140,7 +140,7 @@ Owners and backups are from CD1 report §8 (roles on trial until CD2). The backu
 1. Implement `voidBranches` (rule confirmed), `supportingDetails` (**8 details**), **`lifeGua`**, `boundaryWarnings`.
 2. Use the samples to settle the leads in `docs/conventions.md`: day vs year branch, the Life Palace formula,
    and the Gua year boundary.
-3. ⚠️ **Workload:** RC-01 roughly doubled this workstream. Isaac (backup) takes `lifeGua` once WS1 is green.
+3. ⚠️ **Workload:** RC-05 roughly doubled this workstream. Isaac (backup) takes `lifeGua` once WS1 is green.
 - **Done when:** `lookups.test.ts` (15) + golden void, details and Gua sections pass. **By 16 Oct.**
 
 ### WS7 — User interface · Vanessa (backup Kai Wen) · `apps/web/`
@@ -194,12 +194,12 @@ has already answered are gone from this list.
 5. How many clients are in a typical batch, and how far ahead do you prepare? (This sets the performance NFR.)
 
 **Scope and conventions**
-6. **Present our luck-pillar method** (WS4 explainer) and confirm he is happy with it. (RC-05)
+6. **Present our luck-pillar method** (WS4 explainer) and confirm he is happy with it. (RC-09)
 7. The month strip: Feb → Jan (the Bazi year, as in the software) or Jan → Dec (as on his slide)?
 8. The **Annual Bazi Stars** panel on the software's chart: wanted? (Qi Men stays out, as agreed at CD1.)
 9. Display names for the structures, profiles and aspects: his deck's wording (Connector, Creator…), classical
    terms, or new ones? (R10 — we won't copy the software's branded labels.)
-10. Does the v2 template work for him? Is the slot dropdown clear? (RC-04)
+10. Does the v2 template work for him? Is the slot dropdown clear? (RC-08)
 11. Clock vs true solar time (Q14) — the one open convention.
 12. Unknown birth hour: plot with a warning, or decline? (Q7)
 13. The birth data of the "luck starts at 8" chart on his slide, so we can check our luck rule on it.
@@ -220,7 +220,7 @@ has already answered are gone from this list.
 | **R10 (new) — copyright:** the reference charts carry a Joey Yap notice claiming the charts, designs and terminology | Match the *computations*, not the presentation. Use our own design and classical or Ray-agreed wording. Raise it with Dr Yau at consultation 1. |
 | **R11 (new) — 6 Aspects formula unknown**, on top of R1 | Same method as the %: key the data, use the printed deltas as exact checks, fit; decision point at CD4. Don't promise exactness at CD2. |
 | Keying 30 samples with ~60 values each is slow and error-prone | Two people per row; S8 to automate the bar measurements; split the samples across 4–5 people. |
-| WS6 workload doubled by RC-01 | Backup (Isaac) takes the Gua after WS1 lands; Gua specs are table-driven and quick. |
+| WS6 workload doubled by RC-05 | Backup (Isaac) takes the Gua after WS1 lands; Gua specs are table-driven and quick. |
 | WS1 is on everyone's critical path | Each module takes the fixture's pillars as input (golden harness), so nobody waits on WS1. |
 | Quiz 1 week (5–11 Oct), then recess | Freeze S1 before Quiz week; use the recess for the engine sprint. |
 | Chinese text doesn't render in the Apps Script PDF | Google Slides template fallback (S3). |

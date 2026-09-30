@@ -2,7 +2,7 @@
 
 **Status: OUTLINE — WS4 (Raees, backup Dave) to write by Wed 21 Oct for Customer Day 2.**
 Ray asked on 30 Sep for an explanation of how the luck pillars are computed: the direction, the starting
-age of the first cycle, and the cycles after it. He also asked for the annual pillar (RC-05). Write for a
+age of the first cycle, and the cycles after it. He also asked for the annual pillar (RC-09). Write for a
 practitioner, not a programmer: one page, one worked example, no code. Also make one slide from it for the deck.
 
 ## 1. The annual pillar
@@ -15,17 +15,22 @@ practitioner, not a programmer: one page, one worked example, no code. Also make
 - Worked example: Example A, 戊 (yang) year, female → backward from 庚申: 己未, 戊午, 丁巳…
 
 ## 3. Starting age of the first cycle
-- Count the time from birth to the next 节 (forward) or back to the previous 节 (backward).
-- Convert it: **3 days = 1 year** (1 day = 4 months; 2 hours = 10 days). *WS4: state the variant we chose and why.*
-- Worked example: Example A → 9 years 9 months 20 days, so the first luck pillar 己未 begins mid-1998.
-- How the age is **printed** (real vs nominal age; rounding). *WS4: fill in from the 30-sample comparison.*
+- Count **whole calendar days** from the birth date to the date of the next 节 (forward) or back to the date of
+  the previous 节 (backward). A birth *on* a 节's date counts as after that 节, whatever the time.
+- Convert it: **3 days = 1 year**, rounded to the nearest year. That is the age printed above the first pillar.
+- Worked example: Example A (6 Sep 1988, backward) → 立秋 on 7 Aug 1988 → 30 days → **10**.
+- Ages are counted the Chinese way (虚岁): the pillar printed at age 10 starts in 1988 + 10 − 1 = 1997.
+- This is the rule his software uses (found on the 30 samples, 30 Sep). The textbook version counts to the exact
+  moment of the 节 and gives months and days (Example A: 9 years 9 months 20 days). *WS4: explain the difference
+  in one sentence.*
 
 ## 4. The cycles after it
 - Each pillar lasts 10 years, and the next one follows in the same direction.
 
 ## 5. How well this matches your software
-- Match rate on the 30 samples: first pillar __/30, printed first age __/30.
-- Any cases that differ, and why. *(E.g. births a few hours before a 节 on the same day.)*
+- Match rate on the 30 samples: direction and all 9 pillars **30/30**, printed first age **30/30**.
+- The exact-moment method would disagree on 16 of the 30, by up to 10 years for a birth a few hours before a 节
+  on the same day (the software counts that birth as after the 节).
 - The question for Ray: is he happy for the tool to use this rule?
 
 *Sources: standard method (cite a reference text); lunar-javascript `getYun` (both methods); the 30 samples.*

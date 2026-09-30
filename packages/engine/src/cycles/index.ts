@@ -2,13 +2,15 @@
  * WS4 — Luck, annual and monthly pillars.
  * Owner: Raees · Backup: Dave (CD1 report §8).
  *
- * Luck direction: yang-year male / yin-year female run forward, the others backward.
+ * Luck direction: yang-year male / yin-year female run forward, the others backward (30/30 samples).
  * Luck start: Ray does NOT know how his plotter computes it and asked us to explain the method
- * (30 Sep). So Q2 is ours: pick the standard rule, check it against all 30 samples, and write a
- * one-page explanation for Ray (docs/luck-pillars-for-ray.md) for CD2.
- * Careful: lunar-javascript's DaYun ages are nominal (虚岁); the reference shows ages like 8, 18, 28.
- * Lead: on at least one sample born a few hours BEFORE a 节 on the same day, the reference starts
- * the first luck pillar at 10 where the days ÷ 3 rule gives about 0 — check how many samples do this.
+ * (30 Sep, RC-09). The reference's rule was FOUND on all 30 samples — settings.luckStartMethod
+ * 'calendar-days' (the default): whole calendar days from the birth DATE to the DATE of the 节,
+ * where a birth on a 节's date counts as after that 节 whatever the time; first age = round(days ÷ 3).
+ * That is why a birth a few hours before a 节 on the same day starts at 10 (forward) or 0 (backward).
+ * Printed ages are nominal (虚岁): a pillar printed at age A starts in birthYear + A − 1.
+ * Explain it to Ray in docs/luck-pillars-for-ray.md for CD2. lunar-javascript's own start age
+ * (exact instants) disagrees on 16 of the 30 — keep it only for the other two settings.
  *
  * Done when: every spec in test/cycles.test.ts runs and passes.
  * Milestone: direction + start-age rule tested on the samples; 2026 month strip matches (21 Oct).

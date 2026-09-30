@@ -22,7 +22,7 @@ numbered rows 1–28. Columns: `s/n`, last name, first name, birth date (DD/MM/Y
 **Gender (M/F)** and **Estimated birth hour (2-hour slot)**, both added on 30 Sep at Ray's request. The slot
 column is a dropdown fed from the `Lists` sheet (`23:00-00:59 (Zi)` … `21:00-22:59 (Hai)`). Both hour and slot
 blank means "hour unknown". The parser also accepts the old v1 layout (gender then comes out as null).
-**Waiting on Ray** to confirm the slot format (RC-04).
+**Waiting on Ray** to confirm the slot format (RC-08).
 
 ## First deployment (test account)
 
