@@ -50,7 +50,7 @@ numbers go in every CD report.
 6. **Decision point:** if exact agreement is not reached by CD4, agree with Ray whether the best model, with its
    measured error, is acceptable.
 
-## 3. Method for the 6 Aspects (new, RC-02)
+## 3. Method for the 6 Aspects (new, RC-06)
 
 1. The printed **deltas** (annual − natal, in 5% steps) are exact. Use them as the check.
 2. Measure the bar heights (S8) to get approximate natal and annual values.

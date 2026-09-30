@@ -25,10 +25,10 @@ when the real engine arrives.
 | `annual` | `AnnualPillar` | Pillar + `year` |
 | `monthly` | `MonthPillar[12]` | Pillar + Gregorian `month` + `starts` (ISO instant of the 节) + `lifeStage` (十二长生 of the Day Master). Span per `settings.monthStripSpan` — default Feb → Jan (Bazi year) |
 | `supporting` | `SupportingDetails` | The 8 Personal Chart Details: Celestial Animal, Noble People[], Intelligence, Peach Blossom, Sky Horse, Solitary, Life Palace (pillar), Conception Palace (pillar) |
-| `gua` | `LifeGua \| null` | `number`, `trigram`, `group` (east/west), `lifeStar`, `directions` (8 sectors); null without gender. **Added 30 Sep (RC-01)** |
+| `gua` | `LifeGua \| null` | `number`, `trigram`, `group` (east/west), `lifeStar`, `directions` (8 sectors); null without gender. **Added 30 Sep (RC-05)** |
 | `relationships` | `Relationship[]` | `kind`, `between` (positions, incl. `luck` / `annual`), `chars`, optional `resultElement` |
 | `profiles` | `Profiles \| null` | `natal` + `annual` sets; null until the WS3 model is accepted; carries a `model` id |
-| `aspects` | `SixAspects \| null` | "6 Aspects", `natal` + `annual`; null until a model is found. **Added 30 Sep (RC-02)** |
+| `aspects` | `SixAspects \| null` | "6 Aspects", `natal` + `annual`; null until a model is found. **Added 30 Sep (RC-06)** |
 | `warnings` | `ChartWarning[]` | `code` + message (+ `minutes` for near-boundary codes) |
 
 ## Design rules

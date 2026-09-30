@@ -2,7 +2,7 @@
 
 **Status: OUTLINE — WS4 (Raees, backup Dave) to write by Wed 21 Oct for Customer Day 2.**
 Ray asked on 30 Sep for an explanation of how the luck pillars are computed: the direction, the starting
-age of the first cycle, and the cycles after it. He also asked for the annual pillar (RC-05). Write for a
+age of the first cycle, and the cycles after it. He also asked for the annual pillar (RC-09). Write for a
 practitioner, not a programmer: one page, one worked example, no code. Also make one slide from it for the deck.
 
 ## 1. The annual pillar

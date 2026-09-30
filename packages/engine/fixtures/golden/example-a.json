@@ -1,7 +1,7 @@
 {
   "id": "example-a",
   "description": "Ray's sample natal chart: 06 Sep 1988 01:30, female.",
-  "source": "Project_Bazi_plotting_tool.pdf p.3 (client deck; image client_chart_natal_layout.png). Pillars verified independently with lunar-python and lunar-javascript (tracker V-12); supporting panel checked against standard tables (V-17). Solitary, Life Palace, Conception Palace, Life Star and Gua read off the same chart (30 Sep) — they are now in scope (RC-01).",
+  "source": "Project_Bazi_plotting_tool.pdf p.3 (client deck; image client_chart_natal_layout.png). Pillars verified independently with lunar-python and lunar-javascript (tracker V-12); supporting panel checked against standard tables (V-17). Solitary, Life Palace, Conception Palace, Life Star and Gua read off the same chart (30 Sep) — they are now in scope (RC-05).",
   "input": {
     "date": "1988-09-06",
     "time": { "kind": "exact", "time": "01:30" },

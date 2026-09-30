@@ -57,7 +57,7 @@ describe('[WS6] personal chart details', () => {
   });
 });
 
-// RC-01 (30 Sep): Gua, Life Star and the 8 directions are now requested.
+// RC-05 (30 Sep): Gua, Life Star and the 8 directions are now requested.
 describe('[WS6] Life Gua', () => {
   const born = (date: string, gender: 'M' | 'F' | null): BirthInput => ({
     date,

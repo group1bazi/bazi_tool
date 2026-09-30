@@ -11,7 +11,7 @@ here (keep each to ~10 lines). The results go into the CD2 deck and report.
 | S4 | Which free static host allows a practitioner's business use? Does the PWA install on iOS and Android? | WS7 (+ WS10) | Fri 9 Oct | Not started |
 | S5 | Is the test harness running in CI with the verified fixtures? | WS9 | Fri 9 Oct | **✅ Scaffolded** — CI runs 90 specs, which switch on as modules land |
 | S6 | Draft the designed-sample request for Ray (vary one factor at a time). Samples 1–30 have all arrived | WS3 (+ WS2) | Fri 2 Oct | Not started |
-| S7 | Ray's template is `.xlsx`. Convert it on arrival (Drive API / advanced service), or ask him to keep a Google Sheet? | WS8 | Fri 9 Oct | Not started — template v2 drafted (RC-04) |
+| S7 | Ray's template is `.xlsx`. Convert it on arrival (Drive API / advanced service), or ask him to keep a Google Sheet? | WS8 | Fri 9 Oct | Not started — template v2 drafted (RC-08) |
 | S8 | **New:** can we read values off the sample PDFs by machine? They have no text layer; the 6 Aspects bars print no numbers | WS9 (+ WS3) | Fri 9 Oct | Not started — see notes below |
 
 ---
