@@ -1,0 +1,38 @@
+{
+  "id": "month-strip-2026",
+  "description": "The 12 month pillars for 2026 in both layouts seen on Ray's references, plus the 空亡 tags.",
+  "source": "Bazi year (FEB 4 … JAN 5 (2027)): the 'Monthly Influence' strip on the Joey Yap sample charts (30 Sep). Calendar year (JAN 5 … DEC 7): Ray's deck slide; Jan = 己丑 from the 乙巳 year (CD1 report App. B, V-F3). The deck strip belongs to a Day Master 丙 chart whose 空亡 tags on JUN 午 / JUL 未 fit a 丙戌 day (Determining_DE.docx). Jie instants are lunar-javascript's, on the UTC+8 clock.",
+  "annualYear": 2026,
+  "dayPillar": "丙戌",
+  "expected": {
+    "baziYear": [
+      { "month": 2, "pillar": "庚寅", "starts": "2026-02-04T04:02:08+08:00" },
+      { "month": 3, "pillar": "辛卯", "starts": "2026-03-05T21:59:00+08:00" },
+      { "month": 4, "pillar": "壬辰", "starts": "2026-04-05T02:40:00+08:00" },
+      { "month": 5, "pillar": "癸巳", "starts": "2026-05-05T19:48:44+08:00" },
+      { "month": 6, "pillar": "甲午", "starts": "2026-06-05T23:48:21+08:00" },
+      { "month": 7, "pillar": "乙未", "starts": "2026-07-07T09:56:57+08:00" },
+      { "month": 8, "pillar": "丙申", "starts": "2026-08-07T19:42:43+08:00" },
+      { "month": 9, "pillar": "丁酉", "starts": "2026-09-07T22:41:16+08:00" },
+      { "month": 10, "pillar": "戊戌", "starts": "2026-10-08T14:29:17+08:00" },
+      { "month": 11, "pillar": "己亥", "starts": "2026-11-07T17:52:05+08:00" },
+      { "month": 12, "pillar": "庚子", "starts": "2026-12-07T10:52:32+08:00" },
+      { "month": 1, "pillar": "辛丑", "starts": "2027-01-05T22:09:58+08:00" }
+    ],
+    "calendarYear": [
+      { "month": 1, "pillar": "己丑", "starts": "2026-01-05T16:23:10+08:00" },
+      { "month": 2, "pillar": "庚寅", "starts": "2026-02-04T04:02:08+08:00" },
+      { "month": 3, "pillar": "辛卯", "starts": "2026-03-05T21:59:00+08:00" },
+      { "month": 4, "pillar": "壬辰", "starts": "2026-04-05T02:40:00+08:00" },
+      { "month": 5, "pillar": "癸巳", "starts": "2026-05-05T19:48:44+08:00" },
+      { "month": 6, "pillar": "甲午", "starts": "2026-06-05T23:48:21+08:00" },
+      { "month": 7, "pillar": "乙未", "starts": "2026-07-07T09:56:57+08:00" },
+      { "month": 8, "pillar": "丙申", "starts": "2026-08-07T19:42:43+08:00" },
+      { "month": 9, "pillar": "丁酉", "starts": "2026-09-07T22:41:16+08:00" },
+      { "month": 10, "pillar": "戊戌", "starts": "2026-10-08T14:29:17+08:00" },
+      { "month": 11, "pillar": "己亥", "starts": "2026-11-07T17:52:05+08:00" },
+      { "month": 12, "pillar": "庚子", "starts": "2026-12-07T10:52:32+08:00" }
+    ],
+    "voidMonths": [6, 7]
+  }
+}
