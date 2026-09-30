@@ -1,0 +1,30 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Apps Script: the script ID belongs to the deployment account (Ray's), not the repo
+apps/batch/.clasp.json
+.clasprc.json
+
+# PRIVATE DATA — never commit client or sample birth data (see docs/data-handling.md)
+data/private/*
+!data/private/README.md
+research/profiles/data/*
+!research/profiles/data/README.md
+*.xlsx
+*.pdf
