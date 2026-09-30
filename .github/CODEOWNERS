@@ -1,0 +1,21 @@
+# Each workstream's OWNER and BACKUP are asked to review changes to its code (CD1 report §8:
+# the backup is the default reviewer). Replace the placeholders with GitHub usernames, then turn on
+# "Require review from Code Owners" in the main branch protection rule.
+#
+# Lines are commented out until the handles are filled in — an unknown handle makes GitHub reject the file.
+
+# *                                   @<jia-rui>          # WS10 integration — fallback reviewer
+# /packages/engine/src/types.ts       @<isaac> @<vanessa> @<jia-jun>   # ChartResult: WS1 + WS7 + WS8
+# /packages/engine/src/calendar/      @<isaac> @<darrius>       # WS1
+# /packages/engine/src/stems/         @<cleavant> @<vanessa>    # WS2
+# /packages/engine/src/core/terms.ts  @<cleavant> @<vanessa>    # WS2 terms table
+# /packages/engine/src/profiles/      @<hanzalah> @<cleavant>   # WS3
+# /research/profiles/                 @<hanzalah> @<kai-wen>    # WS3 + WS9
+# /packages/engine/src/cycles/        @<raees> @<dave>          # WS4
+# /packages/engine/src/relations/     @<dave> @<raees>          # WS5
+# /packages/engine/src/lookups/       @<darrius> @<isaac>       # WS6
+# /apps/web/                          @<vanessa> @<kai-wen>     # WS7
+# /apps/batch/                        @<jia-jun> @<jia-rui>     # WS8
+# /packages/engine/test/              @<kai-wen> @<jia-jun>     # WS9
+# /packages/engine/fixtures/          @<kai-wen> @<jia-jun>     # WS9
+# /docs/                              @<jia-rui> @<hanzalah>    # WS10

@@ -1,0 +1,38 @@
+{
+  "id": "zi-hour-1978",
+  "description": "Ray's late-子-hour example: 3 Feb 1978 23:59 — day pillar stays 丙申, hour stem from the next day (丁) → 庚子.",
+  "source": "Determining_Hour Pillar.docx (Ray, 30 Sep): a Joey Yap natal chart with every hidden stem and Ten God label, 空亡 marked on the year branch 巳. lunar-javascript sect 2 reproduces it exactly. Applying Singapore's pre-1982 +07:30 offset would give a 丁酉 day, so the reference plotter does not apply it. Gender is not shown on the chart.",
+  "input": {
+    "date": "1978-02-03",
+    "time": { "kind": "exact", "time": "23:59" },
+    "gender": null
+  },
+  "annualYear": 2026,
+  "expected": {
+    "pillars": { "year": "丁巳", "month": "癸丑", "day": "丙申", "hour": "庚子" },
+    "hiddenStems": {
+      "year": ["丙", "戊", "庚"],
+      "month": ["己", "癸", "辛"],
+      "day": ["庚", "壬", "戊"],
+      "hour": ["癸"]
+    },
+    "hiddenStemsDisplay": {
+      "year": ["庚", "丙", "戊"],
+      "month": ["辛", "己", "癸"],
+      "day": ["戊", "庚", "壬"],
+      "hour": ["癸"]
+    },
+    "stemGods": { "year": "RW", "month": "DO", "hour": "IW" },
+    "hiddenGods": {
+      "year": ["F", "EG", "IW"],
+      "month": ["HO", "DO", "DW"],
+      "day": ["IW", "7K", "EG"],
+      "hour": ["DO"]
+    },
+    "voids": ["辰", "巳"],
+    "annual": "丙午"
+  },
+  "hypotheses": {
+    "hourAt1345": "Same date at 13:45 → hour pillar 乙未 (Ray's worked example in the same document)."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "example-a",
+  "description": "Ray's sample natal chart: 06 Sep 1988 01:30, female.",
+  "source": "Project_Bazi_plotting_tool.pdf p.3 (client deck; image client_chart_natal_layout.png). Pillars verified independently with lunar-python and lunar-javascript (tracker V-12); supporting panel checked against standard tables (V-17). Solitary, Life Palace, Conception Palace, Life Star and Gua read off the same chart (30 Sep) — they are now in scope (RC-01).",
+  "input": {
+    "date": "1988-09-06",
+    "time": { "kind": "exact", "time": "01:30" },
+    "gender": "F"
+  },
+  "annualYear": 2026,
+  "expected": {
+    "pillars": { "year": "戊辰", "month": "庚申", "day": "甲子", "hour": "乙丑" },
+    "hiddenStems": {
+      "year": ["戊", "乙", "癸"],
+      "month": ["庚", "壬", "戊"],
+      "day": ["癸"],
+      "hour": ["己", "癸", "辛"]
+    },
+    "hiddenStemsDisplay": {
+      "year": ["癸", "戊", "乙"],
+      "month": ["戊", "庚", "壬"],
+      "day": ["癸"],
+      "hour": ["辛", "己", "癸"]
+    },
+    "stemGods": { "year": "IW", "month": "7K", "hour": "RW" },
+    "hiddenGods": {
+      "year": ["IW", "RW", "DR"],
+      "month": ["7K", "IR", "IW"],
+      "day": ["DR"],
+      "hour": ["DW", "DR", "DO"]
+    },
+    "voids": ["戌", "亥"],
+    "supporting": {
+      "celestialAnimal": "辰",
+      "noblePeople": ["丑", "未"],
+      "intelligence": "巳",
+      "peachBlossom": "酉",
+      "skyHorse": "寅",
+      "solitary": "寅",
+      "lifePalace": "己未",
+      "conceptionPalace": "辛亥"
+    },
+    "gua": {
+      "number": 3,
+      "trigram": "震",
+      "group": "east",
+      "lifeStar": 3,
+      "directions": {
+        "shengQi": "S",
+        "tianYi": "N",
+        "yanNian": "SE",
+        "fuWei": "E",
+        "huoHai": "SW",
+        "wuGui": "NW",
+        "liuSha": "NE",
+        "jueMing": "W"
+      }
+    },
+    "annual": "丙午"
+  },
+  "hypotheses": {
+    "luck": {
+      "status": "Q2 open — confirm against Ray's plotter before moving into 'expected'",
+      "direction": "backward (yang year, female)",
+      "start": "9 years 9 months 20 days (lunar-javascript, both methods)",
+      "pillars": ["己未", "戊午", "丁巳", "丙辰", "乙卯", "甲寅", "癸丑", "壬子"],
+      "firstPillarStartYear": 1998
+    },
+    "profilesNatal": {
+      "status": "From Ray's 5 Structures / 10 Profiles slide. Consistent with this chart (Day Master 甲, 7K strongest) but not proven to be the same person (V-20).",
+      "tenGods": {
+        "7K": 100,
+        "IW": 94,
+        "DR": 87,
+        "IR": 82,
+        "DO": 75,
+        "DW": 52,
+        "RW": 40,
+        "F": 20,
+        "HO": 0,
+        "EG": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "doc-sample",
+  "description": "The worked example in Ray's computation document: 戊辰 癸亥 甲戌 庚午.",
+  "source": "Computing Elements of Bazi Chart.pdf pp.1-7. The document gives only the pillars; 15 Nov 1988 is the only 甲戌 day inside the 1988 癸亥 month, and any time 11:00-12:59 gives 庚午 (lunar-javascript agrees). Void 申酉 per Determining_DE.docx (甲戌旬).",
+  "input": {
+    "date": "1988-11-15",
+    "time": { "kind": "exact", "time": "12:00" },
+    "gender": null
+  },
+  "annualYear": 2026,
+  "expected": {
+    "pillars": { "year": "戊辰", "month": "癸亥", "day": "甲戌", "hour": "庚午" },
+    "hiddenStems": {
+      "year": ["戊", "乙", "癸"],
+      "month": ["壬", "甲"],
+      "day": ["戊", "辛", "丁"],
+      "hour": ["丁", "己"]
+    },
+    "stemGods": { "year": "IW", "month": "DR", "hour": "7K" },
+    "hiddenGods": {
+      "year": ["IW", "RW", "DR"],
+      "month": ["IR", "F"],
+      "day": ["IW", "DO", "HO"],
+      "hour": ["HO", "DW"]
+    },
+    "voids": ["申", "酉"],
+    "annual": "丙午"
+  },
+  "hypotheses": {}
+}
