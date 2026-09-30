@@ -51,8 +51,9 @@ and to `EXAMPLE_A_CHART`. If an existing field changes meaning, bump `schemaVers
 
 - `relationships[].between: 'luck'` means the luck pillar in force in `annualYear`. Is that enough for the
   summary view, or does WS5/WS7 want every luck pillar checked?
-- `luck.pillars[].startAge` — real or nominal age? It follows `settings.ageReckoning` (Q2). The reference
-  prints ages like 8, 18, 28 and 10, 20, 30.
+- `luck.pillars[].startAge` follows `settings.ageReckoning`, now `'nominal'` by default: the 30 samples show
+  the reference prints nominal (虚岁) ages (`docs/conventions.md`). A pillar printed at age A starts in
+  `startYear` = birth year + A − 1.
 - `profiles.annual` / `aspects.annual`: the samples show an annual version of both (e.g. "Annual 2026"), so
   `annualYear` drives them as well as the annual pillar and the month strip.
 - The reference also shows **Annual Bazi Stars** and **Qi Men** panels. They are deliberately **not** in v1:

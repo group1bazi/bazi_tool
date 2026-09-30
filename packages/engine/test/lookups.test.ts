@@ -38,6 +38,8 @@ describe('[WS6] personal chart details', () => {
   });
 
   // Read off Ray's natal-layout chart for Example A (client_chart_natal_layout.png).
+  // CONFLICT (30 Sep): 己未 fits (16 − month − hour) mod 12, but all 30 sample charts fit
+  // (17 − month − hour) mod 12, which gives 庚申 here. Ask Ray which build he uses (conventions.md).
   spec("Example A's extra details: Solitary 寅, Life Palace 己未, Conception Palace 辛亥", () => {
     const s = supportingDetails(natal('戊辰 庚申 甲子 乙丑'));
     expect(s.solitary).toBe('寅');
@@ -45,10 +47,18 @@ describe('[WS6] personal chart details', () => {
     expect(formatGanZhi(s.conceptionPalace)).toBe('辛亥');
   });
 
-  // Two reference charts agree that 孤辰 follows the DAY branch (巳午未 → 申), not the year (亥子丑 → 寅).
-  spec('Solitary is taken from the day branch', () => {
-    expect(supportingDetails(natal('甲子 丙寅 丁巳 庚子')).solitary).toBe('申');
+  // CONFIRMED on the 30 samples (30 Sep): 孤辰, 桃花 and 驛馬 all follow the DAY branch. Here the day
+  // branch 巳 and the year branch 子 give different answers (the year would give 寅 / 酉 / 寅).
+  spec('Solitary, Peach Blossom and Sky Horse are taken from the day branch', () => {
+    const s = supportingDetails(natal('甲子 丙寅 丁巳 庚子'));
+    expect(s.solitary).toBe('申');
+    expect(s.peachBlossom).toBe('午');
+    expect(s.skyHorse).toBe('亥');
   });
+
+  it.todo(
+    '[WS6] Life Palace branch: settle the samples (17 − month − hour) vs Example A (16 − month − hour) with Ray',
+  );
 
   spec('Conception Palace = month stem + 1, month branch + 3', () => {
     expect(formatGanZhi(supportingDetails(natal('甲子 丙寅 丁巳 庚子')).conceptionPalace)).toBe(
@@ -113,13 +123,21 @@ describe('[WS6] Life Gua', () => {
     },
   );
 
+  // CONFIRMED on 7 samples (30 Sep): the trigram becomes 坤 / 艮 but the Life Star stays 5 (五黃).
+  spec('a 5 keeps Life Star 5', () => {
+    expect(lifeGua(born('1995-06-01', 'M'))?.lifeStar).toBe(5);
+  });
+
+  // CONFIRMED on the 30 samples (30 Sep): the Gua year changes on a fixed 4 Feb. In 1980 Li Chun fell
+  // on 5 Feb, yet 4 Feb already counts as 1980 (men: 1980 → 2 坤, 1979 → 3 震).
+  spec('the Gua year changes on 4 Feb, not at Li Chun', () => {
+    expect(lifeGua(born('1980-02-04', 'M'))?.trigram).toBe('坤');
+    expect(lifeGua(born('1980-02-03', 'M'))?.trigram).toBe('震');
+  });
+
   spec('no gender → no Gua', () => {
     expect(lifeGua(born('1988-09-06', null))).toBeNull();
   });
-
-  it.todo(
-    '[WS6] births from 1 Jan to Li Chun: which year does the Gua use? One reference chart uses the NEW year while its pillars use the old one',
-  );
 });
 
 describe('[WS6] warnings', () => {

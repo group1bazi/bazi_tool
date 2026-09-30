@@ -37,9 +37,9 @@ Change Log.
 | Q3 — 23:00–23:59 births | ✅ **Closed.** The day pillar stays; the hour stem uses the next day (`Determining_Hour Pillar.docx`) |
 | Q5 — 空亡 rule | ✅ **Closed** (`Determining_DE.docx`) |
 | Q4 — hidden-stem display order | ✅ Main qi centred on every reference chart |
-| Samples | ✅ **All 30 arrived** (1–10 on 30 Sep). No text layer, so they are keyed by hand |
+| Samples | ✅ **All 30 keyed** (30 Sep) into `Sample_Register` → `Sample_Values` and `research/profiles/data/samples.csv`. Each row still needs `checked_by`. New rules found are in `docs/conventions.md` |
 | Q6/Q7 — input file | ✅ Add **Gender (M/F)** and an **estimated 2-hour slot** column; both blank = hour unknown. Our v2 template is drafted and must go back to Ray |
-| Q2 — luck-pillar rule | 🔧 **Ours to define** — Ray doesn't know (RC-09) |
+| Q2 — luck-pillar rule | 🔧 **Ours to explain** — Ray doesn't know (RC-09). His software's rule was found on the 30 samples (30/30): whole calendar days to the 节 date ÷ 3, nominal ages |
 | Q10/Q11 — Gua, Life Star, 8 directions, personal details | ✅ **Now requested** (RC-05) |
 | 6 Aspects (natal + annual) | 🆕 **Requested, method unknown** (RC-06) → risk R11 |
 | Reference software | ℹ️ **Joey Yap's BaZi software**. Its footer claims copyright on its charts, designs and terminology → risk R10 |

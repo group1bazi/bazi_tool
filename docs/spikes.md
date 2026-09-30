@@ -12,7 +12,7 @@ here (keep each to ~10 lines). The results go into the CD2 deck and report.
 | S5 | Is the test harness running in CI with the verified fixtures? | WS9 | Fri 9 Oct | **✅ Scaffolded** — CI runs 90 specs, which switch on as modules land |
 | S6 | Draft the designed-sample request for Ray (vary one factor at a time). Samples 1–30 have all arrived | WS3 (+ WS2) | Fri 2 Oct | Not started |
 | S7 | Ray's template is `.xlsx`. Convert it on arrival (Drive API / advanced service), or ask him to keep a Google Sheet? | WS8 | Fri 9 Oct | Not started — template v2 drafted (RC-08) |
-| S8 | **New:** can we read values off the sample PDFs by machine? They have no text layer; the 6 Aspects bars print no numbers | WS9 (+ WS3) | Fri 9 Oct | Not started — see notes below |
+| S8 | **New:** can we read values off the sample PDFs by machine? They have no text layer; the 6 Aspects bars print no numbers | WS9 (+ WS3) | Fri 9 Oct | **✅ Done (30 Sep)** — all 30 keyed; see notes below |
 
 ---
 
@@ -71,7 +71,19 @@ Rendering works with PyMuPDF (`pip install --target <scratch> pymupdf`; `page.ge
 
 **Question:** can we measure the 6 Aspects bar heights, and cross-check the printed profile values, from the
 rendered page or the PDF drawing commands (`page.get_drawings()`), instead of estimating by eye?
-**Result:** … **Decision:** …
+
+**Result (30 Sep):** yes, for everything drawn as a number or a bar.
+- **Profile %:** each printed digit is one vector shape, so a small shape dictionary decodes all 600 values
+  exactly. The profile bars are vector rectangles too, and their widths agree with the printed numbers.
+- **6 Aspects:** the chart is an embedded image. Bar heights measured between its 0% and 100% gridlines all sit
+  on multiples of 5. Every printed change equals annual − natal (180/180).
+- **Five Structures:** the radar is a background image plus one high-resolution image per polygon. The dots
+  are located in those images, then read against the axis ticks, calibrated per axis. Accuracy is about ±2.
+- **Text** (pillars, details, Gua, luck ages): still read by eye from high-resolution crops, then
+  cross-checked against lunar-javascript. All 30 agree.
+
+**Decision:** keyed all 30 into `Sample_Register` → `Sample_Values`, and into `research/profiles/data/samples.csv`
+(git-ignored). A teammate still has to fill `checked_by` for each row.
 
 **Privacy:** the PDFs show the client's name. Render and measure locally only, never commit the images, and
 never key the name (docs/data-handling.md).
