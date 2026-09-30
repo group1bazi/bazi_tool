@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Node types are for the tests only; test/toolchain.test.ts keeps src/ runtime-neutral.
+    "types": ["node"]
+  },
+  "include": ["src", "fixtures", "test"]
+}

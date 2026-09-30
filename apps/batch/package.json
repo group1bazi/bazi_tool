@@ -1,0 +1,19 @@
+{
+  "name": "@bazi/batch",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WS8 — Google Drive inbox → engine → PDF → email, as Google Apps Script in Ray's own account",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "push": "npm run build && npx @google/clasp push"
+  },
+  "dependencies": {
+    "@bazi/engine": "*"
+  },
+  "devDependencies": {
+    "@types/google-apps-script": "^2.0.13",
+    "esbuild": "^0.28.2"
+  }
+}
