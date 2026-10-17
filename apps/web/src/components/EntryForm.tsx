@@ -46,31 +46,52 @@ export function EntryForm({
         {zh ? '出生日期' : 'Birth date'}
         <input type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
       </label>
-      <fieldset>
+      <fieldset className={mode === 'unknown' ? 'entry__time--unknown' : undefined}>
         <legend>{zh ? '出生时间' : 'Birth time'}</legend>
-        {(['exact', 'slot', 'unknown'] as const).map((m) => (
-          <label key={m} className="inline">
-            <input type="radio" name="mode" checked={mode === m} onChange={() => setMode(m)} />
-            {
+        <div className="entry__time-options">
+          {(['exact', 'slot', 'unknown'] as const).map((m) => (
+            <label key={m} className="inline">
+              <input type="radio" name="mode" checked={mode === m} onChange={() => setMode(m)} />
               {
-                exact: zh ? '准确' : 'Exact',
-                slot: zh ? '时辰' : '2-hour slot',
-                unknown: zh ? '不详' : 'Unknown',
-              }[m]
-            }
-          </label>
-        ))}
-        {mode === 'exact' && (
-          <input type="time" required value={time} onChange={(e) => setTime(e.target.value)} />
-        )}
-        {mode === 'slot' && (
-          <select value={slot} onChange={(e) => setSlot(e.target.value as Branch)}>
-            {BRANCHES.map((b, i) => (
-              <option key={b} value={b}>
-                {b} {BRANCH_INFO[b].animal} · {SLOT_LABEL(i)}
-              </option>
-            ))}
-          </select>
+                {
+                  exact: zh ? '准确' : 'Exact',
+                  slot: zh ? '时辰' : '2-hour slot',
+                  unknown: zh ? '未知' : 'Unknown',
+                }[m]
+              }
+            </label>
+          ))}
+        </div>
+        {mode !== 'unknown' && (
+          <div className="entry__time-control">
+            {mode === 'exact' ? (
+              <>
+                
+                <input
+                  id="birth-time-input"
+                  type="time"
+                  required
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                />
+              </>
+            ) : (
+              <>
+                
+                <select
+                  id="birth-time-slot"
+                  value={slot}
+                  onChange={(e) => setSlot(e.target.value as Branch)}
+                >
+                  {BRANCHES.map((b, i) => (
+                    <option key={b} value={b}>
+                      {SLOT_LABEL(i)} [{b} {BRANCH_INFO[b].animal}]
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
+          </div>
         )}
       </fieldset>
       <label>

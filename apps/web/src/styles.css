@@ -70,7 +70,7 @@ body {
 /* minmax(0, …): without it the scrollable strips' content width stretches the column past the screen. */
 .layout {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   margin-top: 16px;
 }
@@ -100,10 +100,125 @@ body {
 .entry fieldset {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 0;
   border: none;
   padding: 0;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(130px, 1fr) minmax(360px, 2fr) minmax(130px, 1fr) minmax(120px, max-content);
+  gap: 16px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.entry > label {
+  gap: 4px;
+  min-width: 0;
+}
+
+.entry > label > input,
+.entry > label > select {
+  width: 100%;
+  min-width: 0;
+}
+
+.entry > button {
+  align-self: end;
+}
+
+.entry fieldset {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(130px, 0.9fr);
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  row-gap: 4px;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.entry fieldset.entry__time--unknown {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.entry fieldset legend {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+.entry__time-options {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.entry__time-options label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.entry__time-control {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.entry__time-control label {
+  gap: 0;
+  white-space: nowrap;
+}
+
+.entry fieldset.entry__time--unknown .entry__time-options {
+  grid-column: 1 / -1;
+  justify-content: space-between;
+}
+
+.entry__time-control input,
+.entry__time-control select {
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .entry > label {
+    gap: 8px;
+  }
+
+  .entry__time-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .entry__time-control {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .entry__time-control input,
+  .entry__time-control select {
+    flex: initial;
+  }
+
+  .entry fieldset.entry__time--unknown .entry__time-options {
+    align-items: flex-start;
+  }
 }
 
 .entry .inline,
