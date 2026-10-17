@@ -108,7 +108,10 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: minmax(130px, 1fr) minmax(360px, 2fr) minmax(130px, 1fr) minmax(120px, max-content);
+  grid-template-columns: minmax(130px, 1fr) minmax(360px, 2fr) minmax(130px, 1fr) minmax(
+      120px,
+      max-content
+    );
   gap: 16px;
   align-items: stretch;
   min-width: 0;

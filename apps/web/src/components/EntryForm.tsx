@@ -66,7 +66,6 @@ export function EntryForm({
           <div className="entry__time-control">
             {mode === 'exact' ? (
               <>
-                
                 <input
                   id="birth-time-input"
                   type="time"
@@ -77,7 +76,6 @@ export function EntryForm({
               </>
             ) : (
               <>
-                
                 <select
                   id="birth-time-slot"
                   value={slot}
