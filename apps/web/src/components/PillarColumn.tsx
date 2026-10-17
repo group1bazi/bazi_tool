@@ -7,6 +7,7 @@ interface Props {
   display: Display;
   hiddenOrder: Settings['hiddenStemDisplay'];
   compact?: boolean;
+  wideHeading?: boolean;
   /** Small label beside the branch, e.g. the month's life stage. */
   note?: string;
 }
@@ -22,28 +23,42 @@ export function PillarColumn({
   display,
   hiddenOrder,
   compact = false,
+  wideHeading = false,
   note,
 }: Props) {
   const hidden = whenReady(() => orderForDisplay(pillar.hidden, hiddenOrder), pillar.hidden);
   const { lang, pinyin } = display;
 
   return (
-    <div className={`pillar${compact ? ' pillar--compact' : ''}`}>
+    <div
+      className={`pillar${compact ? ' pillar--compact' : ''}${wideHeading ? ' pillar--wide-heading' : ''}`}
+    >
       <div className="pillar__heading">{heading}</div>
-      <div className="pillar__god">
-        {pillar.stemGod ? godTag(pillar.stemGod, lang) : lang === 'zh' ? '日主' : 'DM'}
+      <div className="pillar__row pillar__row--stem">
+        <div className="pillar__god">
+          {pillar.stemGod ? godTag(pillar.stemGod, lang) : lang === 'zh' ? '日主' : 'DM'}
+        </div>
+        <Char char={pillar.stem} pinyin={pinyin} />
       </div>
-      <Char char={pillar.stem} pinyin={pinyin} />
-      <Char char={pillar.branch} pinyin={pinyin} />
+      <div className="pillar__row pillar__row--branch">
+        <Char char={pillar.branch} pinyin={pinyin} />
+      </div>
       {note && <div className="pillar__note">{note}</div>}
-      {pillar.void && <div className="pillar__void">空亡</div>}
-      <div className="pillar__hidden">
-        {hidden.map((h) => (
-          <div key={h.stem} className={`hidden hidden--${h.qi}`}>
-            <span className={`el-${elementOf(h.stem)}`}>{h.stem}</span>
-            <small>{godTag(h.god, lang)}</small>
-          </div>
-        ))}
+      <div
+        className={`pillar__void${pillar.void ? '' : ' pillar__void--empty'}`}
+        aria-hidden={!pillar.void}
+      >
+        {pillar.void ? '空亡' : '\u00a0'}
+      </div>
+      <div className="pillar__row pillar__row--hidden">
+        <div className="pillar__hidden">
+          {hidden.map((h) => (
+            <div key={h.stem} className={`hidden hidden--${h.qi}`}>
+              <span className={`el-${elementOf(h.stem)}`}>{h.stem}</span>
+              <small>{godTag(h.god, lang)}</small>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

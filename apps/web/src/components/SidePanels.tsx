@@ -7,23 +7,37 @@ import {
   formatGanZhi,
   type ChartResult,
   type Mansion,
+  type RelationshipKind,
 } from '@bazi/engine';
-import type { Display } from '../i18n';
+import { pinyinOf, type Display } from '../i18n';
 
 /** Ray's "Personal Chart Details" — eight lookups, plus the chart's 空亡 pair. */
 export function SupportingPanel({ chart, display }: { chart: ChartResult; display: Display }) {
   const s = chart.supporting;
   const zh = display.lang === 'zh';
+  const showPinyin = !zh && display.pinyin;
+  const branchValue = (branch: typeof s.celestialAnimal) =>
+    showPinyin ? `${branch} (${pinyinOf(branch)})` : branch;
+  const ganZhiValue = (value: typeof s.lifePalace) => {
+    const characters = formatGanZhi(value);
+    return showPinyin
+      ? `${characters} (${pinyinOf(value.stem)} ${pinyinOf(value.branch)})`
+      : characters;
+  };
   const rows: Array<[string, string, string]> = [
-    ['Celestial Animal', '生肖', `${s.celestialAnimal} ${BRANCH_INFO[s.celestialAnimal].animal}`],
-    ['Noble People', '贵人', s.noblePeople.join(' ')],
-    ['Intelligence', '文昌', s.intelligence],
-    ['Peach Blossom', '桃花', s.peachBlossom],
-    ['Sky Horse', '驿马', s.skyHorse],
-    ['Solitary', '孤辰', s.solitary],
-    ['Life Palace', '命宫', formatGanZhi(s.lifePalace)],
-    ['Conception Palace', '胎元', formatGanZhi(s.conceptionPalace)],
-    ['Death & Emptiness', '空亡', chart.voids.join(' ')],
+    [
+      'Celestial Animal',
+      '生肖',
+      `${branchValue(s.celestialAnimal)} ${BRANCH_INFO[s.celestialAnimal].animal}`,
+    ],
+    ['Noble People', '贵人', s.noblePeople.map(branchValue).join(' ')],
+    ['Intelligence', '文昌', branchValue(s.intelligence)],
+    ['Peach Blossom', '桃花', branchValue(s.peachBlossom)],
+    ['Sky Horse', '驿马', branchValue(s.skyHorse)],
+    ['Solitary', '孤辰', branchValue(s.solitary)],
+    ['Life Palace', '命宫', ganZhiValue(s.lifePalace)],
+    ['Conception Palace', '胎元', ganZhiValue(s.conceptionPalace)],
+    ['Death & Emptiness', '空亡', chart.voids.map(branchValue).join(' ')],
   ];
   return (
     <section className="panel">
@@ -49,6 +63,19 @@ const DIRECTIONS_ZH: Record<string, string> = {
   SW: '西南',
   W: '西',
   NW: '西北',
+};
+const RELATIONSHIP_LABELS_ZH: Record<RelationshipKind, string> = {
+  clash: '冲',
+  harm: '害',
+  punishment: '刑',
+  'self-punishment': '自刑',
+  destruction: '破',
+  'six-combination': '六合',
+  'three-harmony': '三合',
+  'half-three-harmony': '半合',
+  'directional-combination': '方合',
+  'stem-combination': '天干合',
+  'stem-clash': '天干冲',
 };
 const GOOD: Mansion[] = ['shengQi', 'tianYi', 'yanNian', 'fuWei'];
 const BAD: Mansion[] = ['huoHai', 'wuGui', 'liuSha', 'jueMing'];
@@ -100,14 +127,18 @@ export function RelationshipsPanel({ chart, display }: { chart: ChartResult; dis
       {chart.relationships.length === 0 ? (
         <p className="muted">None found.</p>
       ) : (
-        <ul className="relations">
+        <dl className="facts relations">
           {chart.relationships.map((r, i) => (
-            <li key={i}>
-              <strong>{r.kind}</strong> {r.chars.join('')}{' '}
-              <span className="muted">({r.between.join(' · ')})</span>
-            </li>
+            <div key={i}>
+              <dt className="relations__kind">
+                {display.lang === 'zh' ? RELATIONSHIP_LABELS_ZH[r.kind] : r.kind}
+              </dt>
+              <dd>
+                {r.chars.join('')} <span className="muted">({r.between.join(' · ')})</span>
+              </dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       )}
     </section>
   );
