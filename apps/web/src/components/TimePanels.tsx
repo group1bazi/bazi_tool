@@ -66,6 +66,7 @@ export function MonthStrip({ chart, display }: { chart: ChartResult; display: Di
               display={display}
               hiddenOrder={chart.settings.hiddenStemDisplay}
               compact
+              wideHeading={Boolean(nextYear)}
             />
           );
         })}

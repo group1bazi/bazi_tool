@@ -6,6 +6,10 @@
   --muted: #6b665e;
   --line: #e2ddd3;
   --accent: #8a2d1c;
+  --accent-ink: #ffffff;
+  --gua-trigram: #bd642f;
+  /* --relationship-gold: #e3aa00; */
+  --relationship-gold: #bd642f;
   --wood: #2e7d32;
   --fire: #c62828;
   --earth: #8d6e3f;
@@ -24,6 +28,9 @@
     --muted: #a29c92;
     --line: #3a3732;
     --accent: #e0826e;
+    --accent-ink: #171614;
+    --gua-trigram: #f0a06b;
+    --relationship-gold: #e6c35c;
     --wood: #7cc47f;
     --fire: #ef7a7a;
     --earth: #c9a26a;
@@ -75,12 +82,6 @@ body {
   margin-top: 16px;
 }
 
-@media (max-width: 760px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -90,17 +91,23 @@ body {
 }
 
 .panel h2 {
-  margin: 0 0 10px;
+  margin: -12px -14px 12px;
+  padding: 8px 14px;
+  border-radius: 9px 9px 0 0;
+  background: var(--accent);
+  color: var(--accent-ink);
   font-size: 0.95rem;
-  color: var(--muted);
   font-weight: 600;
 }
 
-.entry label,
-.entry fieldset {
+.entry label {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 0;
+}
+
+.entry fieldset {
   margin-bottom: 0;
   border: none;
   padding: 0;
@@ -139,7 +146,6 @@ body {
   column-gap: 8px;
   row-gap: 4px;
   align-items: center;
-  margin-bottom: 0;
 }
 
 .entry fieldset.entry__time--unknown {
@@ -218,10 +224,6 @@ body {
   .entry__time-control select {
     flex: initial;
   }
-
-  .entry fieldset.entry__time--unknown .entry__time-options {
-    align-items: flex-start;
-  }
 }
 
 .entry .inline,
@@ -274,6 +276,7 @@ button[type='submit'] {
 
 .strip {
   display: flex;
+  align-items: stretch;
   gap: 6px;
   overflow-x: auto;
   padding-bottom: 4px;
@@ -300,6 +303,24 @@ button[type='submit'] {
   font-size: 0.8rem;
 }
 
+.pillar--wide-heading {
+  flex: 0 0 max-content;
+}
+
+.pillar--wide-heading .pillar__heading {
+  white-space: nowrap;
+}
+
+@media (min-width: 861px) {
+  .strip--rtl > .pillar--compact {
+    flex: 1 0 64px;
+  }
+
+  .strip--rtl > .pillar--wide-heading {
+    flex: 1 0 max-content;
+  }
+}
+
 .pillar--missing {
   justify-content: center;
   color: var(--muted);
@@ -307,14 +328,36 @@ button[type='submit'] {
 
 .pillar__heading {
   font-size: 0.75rem;
-  color: var(--muted);
+  color: var(--accent);
   text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+.pillar__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3px 0;
+}
+
+.pillar__row--stem .char {
+  color: var(--water);
+}
+
+.pillar__row--branch .char {
+  color: var(--wood);
+}
+
+.pillar__row--hidden .hidden > span {
+  color: var(--earth);
 }
 
 .pillar__god {
   font-size: 0.8rem;
   font-weight: 600;
+  color: var(--muted);
 }
 
 .char {
@@ -346,6 +389,11 @@ button[type='submit'] {
   background: var(--muted);
   border-radius: 4px;
   padding: 0 4px;
+}
+
+.pillar__void--empty {
+  min-height: 1em;
+  visibility: hidden;
 }
 
 .pillar__hidden {
@@ -403,16 +451,25 @@ button[type='submit'] {
 }
 
 .facts dt {
-  color: var(--muted);
+  color: var(--relationship-gold);
 }
 
 .facts dd {
   margin: 0;
 }
 
-.relations {
-  margin: 0;
-  padding-left: 18px;
+.relations > div {
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.relations__kind {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.relations__kind::after {
+  content: ':';
 }
 
 .panel h3 {
@@ -430,7 +487,7 @@ button[type='submit'] {
 
 .gua__trigram {
   font-size: 2.4rem;
-  color: var(--accent);
+  color: var(--gua-trigram);
 }
 
 .bar {
